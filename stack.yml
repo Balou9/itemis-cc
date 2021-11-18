@@ -71,7 +71,7 @@ Resources:
       ValidateRequestBody: True
       ValidateRequestParameters: True
 
-  Rec‌eiptCollection‌Resource:
+  ReceiptCollectionResource:
     Type: AWS::ApiGateway::Resource
     Properties:
       ParentId: !GetAtt RestApi.RootResourceId
@@ -81,7 +81,7 @@ Resources:
   ShoppingBasket‌Resource:
     Type: AWS::ApiGateway::Resource
     Properties:
-      ParentId: !Ref Rec‌eiptCollection‌Resource
+      ParentId: !Ref Rec‌eiptCollectionResource
       PathPart: shoppingbasket
       RestApiId: !Ref RestApi
 
