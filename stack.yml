@@ -78,10 +78,10 @@ Resources:
       PathPart: receipt
       RestApiId: !Ref RestApi
 
-  ShoppingBasket‌Resource:
+  ShoppingBasketResource:
     Type: AWS::ApiGateway::Resource
     Properties:
-      ParentId: !Ref Rec‌eiptCollectionResource
+      ParentId: !Ref ReceiptCollectionResource
       PathPart: shoppingbasket
       RestApiId: !Ref RestApi
 
