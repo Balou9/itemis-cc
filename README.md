@@ -1,4 +1,4 @@
-[![cdci](https://github.com/Balou9/itemis-cc/workflows/cdci/badge.svg)](https://github.com/Balou9/itemis-cc/actions/workflows/cdci.yml)
+[![cdci](https://github.com/Balou9/itemis-cc/workflows/cdci/badge.svg)](https://github.com/Balou9/itemis-cc/actions)
 
 # TASK  
 
