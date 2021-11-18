@@ -5,10 +5,6 @@ Metadata:
   AWS::Cloudformation::Interface:
     Parametergroups:
       - Label:
-          default: Meta
-        Parameters:
-          - Environment
-      - Label:
           default: API
         Parameters:
           - ApiStageName
@@ -28,11 +24,6 @@ Parameters:
     Description: API access log retention in days
     Type: Number
     Default: 7
-
-  Environment:
-    Description: Environment name - test/prod
-    AllowedPattern: "^(test|prod)$"
-    Type: String
 
   FunctionLogRetentionInDays:
     Description: Lambda log retention in days
