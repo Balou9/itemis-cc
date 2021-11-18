@@ -1,0 +1,32 @@
+{
+  "goods": {
+    "book": {
+      "basic": false,
+      "import": true
+    },
+    "food": {
+      "basic": false,
+      "import": true
+    },
+    "headachePills": {
+      "basic": false,
+      "import": true
+    },
+    "musicCD": {
+      "basic": true,
+      "import": true
+    },
+    "chocalateBar": {
+      "basic": true,
+      "import": true
+    },
+    "chocolateBox": {
+      "basic": true,
+      "import": true
+    },
+    "perfumeBottle": {
+      "basic": true,
+      "import": true
+    }
+  }
+}
