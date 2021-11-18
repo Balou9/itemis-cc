@@ -73,7 +73,7 @@ Resources:
     Type: AWS::ApiGateway::Resource
     Properties:
       ParentId: !Ref ReceiptCollectionResource
-      PathPart: shoppingbasket
+      PathPart: "{shoppingbasket}"
       RestApiId: !Ref RestApi
 
   ReadSalesTaxesTotalPriceMethod:
