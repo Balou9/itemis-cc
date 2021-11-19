@@ -24,12 +24,12 @@ const shoppingBox2 = {
   goods: {
     chocolateBox: {
       amount: 1,
-      price: 10.00,
+      price: 10,
       import: true
     },
     perfumeBottle: {
       amount: 1,
-      price: 47.50,
+      price: 47.5,
       import: true
     }
   }
@@ -64,11 +64,11 @@ tape("Calculates sales Taxes and total price", (t) => {
   const result1 = calcTotalPriceInclTaxes(shoppingBox1)
   const result2 = calcTotalPriceInclTaxes(shoppingBox2)
   const result3 = calcTotalPriceInclTaxes(shoppingBox3)
-  t.equal(result1.salesTaxes, 1.50)
+  t.equal(result1.taxes, 1.50)
   t.equal(result1.totalPrice, 29.83)
-  t.equal(result2.salesTaxes, 7.65)
-  t.equal(result2.totalPrice, 65.16)
-  t.equal(result3.salesTaxes, 6.70)
+  t.equal(result2.taxes, 7.65)
+  t.equal(result2.totalPrice, 65.15)
+  t.equal(result3.taxes, 6.70)
   t.equal(result3.totalPrice, 74.68)
   t.end()
 })
