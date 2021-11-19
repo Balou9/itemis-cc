@@ -4,10 +4,6 @@
       "basic": false,
       "import": true
     },
-    "food": {
-      "basic": false,
-      "import": true
-    },
     "headachePills": {
       "basic": false,
       "import": true
@@ -16,17 +12,21 @@
       "basic": true,
       "import": true
     },
-    "chocalateBar": {
-      "basic": true,
+    "chocolateBar": {
+      "basic": false,
       "import": true
     },
     "chocolateBox": {
-      "basic": true,
+      "basic": false,
       "import": true
     },
     "perfumeBottle": {
       "basic": true,
       "import": true
     }
+  },
+  "taxes": {
+    "basic": 0.1,
+    "import": 0.05
   }
 }
