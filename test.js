@@ -2,17 +2,20 @@ const tape = require("tape")
 const calcTotalPriceInclTaxes = require("./index.js")
 const shoppingBox1 = {
   goods: {
-    book: {
+    "001": {
+      item: "book",
       amount: 1,
       price: 12.49,
       import: false
     },
-    musicCD: {
+    "002": {
+      item: "musicCD",
       amount: 1,
       price: 14.99,
       import: false
     },
-    chocolateBar: {
+    "003": {
+      item: "chocolateBar",
       amount: 1,
       price: 0.85,
       import: false
@@ -22,12 +25,14 @@ const shoppingBox1 = {
 
 const shoppingBox2 = {
   goods: {
-    chocolateBox: {
+    "001": {
+      item: "chocolateBox",
       amount: 1,
       price: 10,
       import: true
     },
-    perfumeBottle: {
+    "002": {
+      item: "perfumeBottle",
       amount: 1,
       price: 47.5,
       import: true
@@ -37,22 +42,26 @@ const shoppingBox2 = {
 
 const shoppingBox3 = {
   goods: {
-    perfumeBottle: {
+    "001": {
+      item: "perfumeBottle",
       amount: 1,
       price: 27.99,
       import: true
     },
-    perfumeBottle: {
+    "002": {
+      item: "perfumeBottle",
       amount: 1,
       price: 18.99,
       import: false
     },
-    headachePills: {
+    "003": {
+      item: "headachePills",
       amount: 1,
       price: 9.75,
       import: false
     },
-    chocolateBox: {
+    "004": {
+      item: "chocolateBox",
       amount: 1,
       price: 11.25,
       import: true
