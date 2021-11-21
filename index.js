@@ -12,7 +12,9 @@ function calcTotalPriceInclTaxes (goodieBox) {
   let itemTotalPrice = 0
   let total = 0
   let salesTaxes = 0
-  let payload = {}
+  let payload = {
+    shoppingCart: {}
+  }
 
   for (goodie in goodieBox.goods) {
     if (taxLookup.goods[goodieBox.goods[goodie].item].basic) {
@@ -40,7 +42,7 @@ function calcTotalPriceInclTaxes (goodieBox) {
     salesTaxes += taxes
     salesTaxes = Math.round(salesTaxes * 100) / 100
 
-    payload[goodie] = prepItemPayload(
+    payload.shoppingCart[goodie] = prepItemPayload(
       goodieBox.goods[goodie].amount,
       goodieBox.goods[goodie].import,
       goodieBox.goods[goodie].item,
