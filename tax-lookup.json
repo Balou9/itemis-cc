@@ -2,27 +2,33 @@
   "goods": {
     "book": {
       "basic": false,
-      "import": true
-    },
-    "headachePills": {
-      "basic": false,
-      "import": true
-    },
-    "musicCD": {
-      "basic": true,
-      "import": true
+      "import": true,
+      "name": "book"
     },
     "chocolateBar": {
       "basic": false,
-      "import": true
+      "import": true,
+      "name": "chocolate bar"
     },
     "chocolateBox": {
       "basic": false,
-      "import": true
+      "import": true,
+      "name": "box of chocolates"
+    },
+    "headachePills": {
+      "basic": false,
+      "import": true,
+      "name": "headache pills"
+    },
+    "musicCD": {
+      "basic": true,
+      "import": true,
+      "name": "music CD"
     },
     "perfumeBottle": {
       "basic": true,
-      "import": true
+      "import": true,
+      "name": "bottle of perfume"
     }
   },
   "taxes": {

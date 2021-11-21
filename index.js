@@ -1,32 +1,61 @@
 const taxLookup = require("./tax-lookup.json")
 
-function calcpriceInclTaxes (goodieBox) {
+function prepItemPayload (amount, importDuty, item, itemPrice) {
+  return (importDuty ? `${amount} imported ${item}: ${itemPrice}` : `${amount} ${item}: ${itemPrice}` )
+}
+
+function calcTotalPriceInclTaxes (goodieBox) {
   let importDuty = 0
+  let basicSalesTaxes = 0
+  let price = 0
+  let taxes = 0
+  let itemTotalPrice = 0
+  let total = 0
   let salesTaxes = 0
-  let payload = {
-    totalPrice: 0,
-    price: 0,
-    taxes: 0
-  }
+  let payload = {}
 
   for (goodie in goodieBox.goods) {
     if (taxLookup.goods[goodieBox.goods[goodie].item].basic) {
-      salesTaxes += goodieBox.goods[goodie].price * taxLookup.taxes.basic
-      salesTaxes = Math.round(salesTaxes * 100) / 100
+      basicSalesTaxes += goodieBox.goods[goodie].price * taxLookup.taxes.basic
+      basicSalesTaxes = Math.round(basicSalesTaxes * 100) / 100
     }
+
     if (goodieBox.goods[goodie].import) {
       importDuty += goodieBox.goods[goodie].price * taxLookup.taxes.import
       importDuty = Math.round(importDuty * 10) / 10
     }
-    payload.price += goodieBox.goods[goodie].amount * goodieBox.goods[goodie].price
-    payload.price = Math.round(payload.price * 100) / 100
+
+    taxes = importDuty + basicSalesTaxes
+    taxes = Math.round(taxes * 100) / 100
+
+    price = goodieBox.goods[goodie].amount * goodieBox.goods[goodie].price
+    price = Math.round(price * 100) / 100
+
+    itemTotalPrice = taxes + price
+    itemTotalPrice = Math.round(itemTotalPrice * 100) / 100
+
+    total += itemTotalPrice
+    total = Math.round(total * 100) / 100
+
+    salesTaxes += taxes
+    salesTaxes = Math.round(salesTaxes * 100) / 100
+
+    payload[goodie] = prepItemPayload(
+      goodieBox.goods[goodie].amount,
+      goodieBox.goods[goodie].import,
+      goodieBox.goods[goodie].item,
+      itemTotalPrice
+    )
+
+    basicSalesTaxes = 0
+    importDuty = 0
+    itemTotalPrice = 0
   }
 
-  payload.taxes = salesTaxes + importDuty
-
-  payload.totalPrice = payload.price + payload.taxes
+  payload["Sales Taxes"] = salesTaxes
+  payload["Total"] = total
 
   return payload
 }
 
-module.exports = calcpriceInclTaxes
+module.exports = calcTotalPriceInclTaxes
