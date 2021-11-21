@@ -1,6 +1,6 @@
 const taxLookup = require("./tax-lookup.json")
 
-function prepItemPayload (amount, importDuty, item, itemPrice) {
+function prepShoppingCartPayload (amount, importDuty, item, itemPrice) {
   return (importDuty ? `${amount} imported ${item}: ${itemPrice}` : `${amount} ${item}: ${itemPrice}` )
 }
 
@@ -42,10 +42,10 @@ function calcTotalPriceInclTaxes (goodieBox) {
     salesTaxes += taxes
     salesTaxes = Math.round(salesTaxes * 100) / 100
 
-    payload.shoppingCart[goodie] = prepItemPayload(
+    payload.shoppingCart[goodie] = prepShoppingCartPayload(
       goodieBox.goods[goodie].amount,
       goodieBox.goods[goodie].import,
-      goodieBox.goods[goodie].item,
+      taxLookup.goods[goodieBox.goods[goodie].item].name,
       itemTotalPrice
     )
 
@@ -54,8 +54,8 @@ function calcTotalPriceInclTaxes (goodieBox) {
     itemTotalPrice = 0
   }
 
-  payload["Sales Taxes"] = salesTaxes
-  payload["Total"] = total
+  payload["Sales Taxes"] = salesTaxes.toFixed(2)
+  payload["Total"] = total.toFixed(2)
 
   return payload
 }
