@@ -10,7 +10,7 @@ function calcpriceInclTaxes (goodieBox) {
   }
 
   for (goodie in goodieBox.goods) {
-    if (taxLookup.goods[goodie].basic) {
+    if (taxLookup.goods[goodieBox.goods[goodie].item].basic) {
       salesTaxes += goodieBox.goods[goodie].price * taxLookup.taxes.basic
       salesTaxes = Math.round(salesTaxes * 100) / 100
     }
