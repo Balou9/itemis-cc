@@ -7,8 +7,8 @@ function prepShoppingCartPayload (amount, importDuty, item, itemPrice) {
 function calcTotalPriceInclTaxes (goodieBox) {
   let importDuty = 0
   let basicSalesTaxes = 0
+  let itemTaxes = 0
   let price = 0
-  let taxes = 0
   let itemTotalPrice = 0
   let total = 0
   let salesTaxes = 0
@@ -27,26 +27,27 @@ function calcTotalPriceInclTaxes (goodieBox) {
       importDuty = Math.round(importDuty * 10) / 10
     }
 
-    taxes = importDuty + basicSalesTaxes
-    taxes = Math.round(taxes * 100) / 100
+    itemTaxes = importDuty + basicSalesTaxes
+    itemTaxes = parseFloat(itemTaxes.toFixed(2))
+
+    salesTaxes += itemTaxes
+    salesTaxes = parseFloat(salesTaxes.toFixed(2))
 
     price = goodieBox.goods[goodie].amount * goodieBox.goods[goodie].price
-    price = Math.round(price * 100) / 100
+    price = parseFloat(price.toFixed(2))
 
-    itemTotalPrice = taxes + price
-    itemTotalPrice = Math.round(itemTotalPrice * 100) / 100
+    itemTotalPrice = itemTaxes + price
+    itemTotalPrice = parseFloat(itemTotalPrice.toFixed(2))
 
     total += itemTotalPrice
-    total = Math.round(total * 100) / 100
+    total = parseFloat(total.toFixed(2))
 
-    salesTaxes += taxes
-    salesTaxes = Math.round(salesTaxes * 100) / 100
-
+    strItemTotalPrice = itemTotalPrice.toFixed(2)
     payload.shoppingCart[goodie] = prepShoppingCartPayload(
       goodieBox.goods[goodie].amount,
       goodieBox.goods[goodie].import,
       taxLookup.goods[goodieBox.goods[goodie].item].name,
-      itemTotalPrice
+      strItemTotalPrice
     )
 
     basicSalesTaxes = 0
@@ -54,8 +55,8 @@ function calcTotalPriceInclTaxes (goodieBox) {
     itemTotalPrice = 0
   }
 
-  payload["Sales Taxes"] = salesTaxes.toFixed(2)
-  payload["Total"] = total.toFixed(2)
+  payload["Sales Taxes"] = salesTaxes
+  payload["Total"] = total
 
   return payload
 }

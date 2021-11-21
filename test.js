@@ -28,13 +28,13 @@ const shoppingBox2 = {
     "001": {
       item: "chocolateBox",
       amount: 1,
-      price: 10,
+      price: 10.00,
       import: true
     },
     "002": {
       item: "perfumeBottle",
       amount: 1,
-      price: 47.5,
+      price: 47.50,
       import: true
     }
   }
