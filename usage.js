@@ -7,6 +7,6 @@ const {
   shoppingBasket5
 } = require("./utils/sampleShoppingBasket.js")
 
-const result = calcTotalPriceInclTaxes(shoppingBasket1)
+const result = calcTotalPriceInclTaxes(shoppingBasket2)
 
 console.log(result)

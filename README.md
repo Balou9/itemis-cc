@@ -20,35 +20,18 @@ Afterwards navigate to the project directory and install required dependencies.
 cd itemis-cc && npm i
 ```
 The main function is declared in the index.js file.
-To use this function it can be imported like in the following example. This example is also declared in a usage.js file.
+To use this function it can be imported like in the following example.
+This example is also declared in the usage.js file.
 
 ```
-const calcTotalPriceInclTaxes = require("./index.js")
-const shoppingBasket1 = {
-  goods: {
-    "001": {
-      item: "book",
-      amount: 1,
-      price: 12.49,
-      import: false
-    },
-    "002": {
-      item: "musicCD",
-      amount: 1,
-      price: 14.99,
-      import: false
-    },
-    "003": {
-      item: "chocolateBar",
-      amount: 1,
-      price: 0.85,
-      import: false
-    }
-  }
+const {
+  shoppingBasket1,
+  shoppingBasket2
 }
+const calcTotalPriceInclTaxes = require("./index.js")
 
-const result1 = calcTotalPriceInclTaxes(shoppingBasket1)
-console.log(result1)
+const result = calcTotalPriceInclTaxes(shoppingBasket1)
+console.log(result)
 // {
 //   shoppingCart: {
 //     '001': '1 book: 12.49',
@@ -57,6 +40,18 @@ console.log(result1)
 //   },
 //   'Sales Taxes': 1.5,
 //   Total: 29.83
+// }
+
+const result = calcTotalPriceInclTaxes(shoppingBasket2)
+console.log(result)
+// {
+//   shoppingCart: {
+//     '001': '1 imported box of chocolates: 10.50',
+//     '002': '1 imported bottle of perfume: 54.65'
+//   },
+//   unavailableProducts: {},
+//   'Sales Taxes': 7.65,
+//   Total: 65.15
 // }
 ```
 
