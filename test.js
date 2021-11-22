@@ -1,6 +1,6 @@
 const tape = require("tape")
 const calcTotalPriceInclTaxes = require("./index.js")
-const shoppingBox1 = {
+const shoppingBasket1 = {
   goods: {
     "001": {
       item: "book",
@@ -23,7 +23,7 @@ const shoppingBox1 = {
   }
 }
 
-const shoppingBox2 = {
+const shoppingBasket2 = {
   goods: {
     "001": {
       item: "chocolateBox",
@@ -40,7 +40,7 @@ const shoppingBox2 = {
   }
 }
 
-const shoppingBox3 = {
+const shoppingBasket3 = {
   goods: {
     "001": {
       item: "perfumeBottle",
@@ -69,10 +69,21 @@ const shoppingBox3 = {
   }
 }
 
+const shoppingBasket4 = {
+  goods: {
+    "001": {
+      item: "football",
+      amount: 2,
+      price: 5.99,
+      import: false
+    }
+  }
+}
+
 tape("Calculates sales Taxes and total price", (t) => {
-  const result1 = calcTotalPriceInclTaxes(shoppingBox1)
-  const result2 = calcTotalPriceInclTaxes(shoppingBox2)
-  const result3 = calcTotalPriceInclTaxes(shoppingBox3)
+  const result1 = calcTotalPriceInclTaxes(shoppingBasket1)
+  const result2 = calcTotalPriceInclTaxes(shoppingBasket2)
+  const result3 = calcTotalPriceInclTaxes(shoppingBasket3)
   t.assert(result1.shoppingCart)
   t.equal(result1.shoppingCart["001"], "1 book: 12.49")
   t.equal(result1.shoppingCart["002"], "1 music CD: 16.49")
@@ -96,3 +107,8 @@ tape("Calculates sales Taxes and total price", (t) => {
   t.equal(result3["Total"], 74.68)
   t.end()
 })
+
+// tape("Returns empty object if shopping basket contains not available goods", (t) => {
+//   const result = calcTotalPriceInclTaxes(shoppingBasket4)
+//   t.equal(result)
+// })

@@ -2,11 +2,72 @@
 
 # TASK  
 
-# Sales Taxes  
+## Sales Taxes  
 
 Basic‌ ‌sales‌ ‌tax‌ ‌is‌ ‌applicable‌ ‌at‌ ‌a‌ ‌rate‌ ‌of‌ ‌10%‌ ‌on‌ all‌ ‌goods,‌ ‌except‌ ‌books,‌ ‌food,‌ ‌and‌ ‌medical‌‌ products‌ ‌that‌ ‌are‌ ‌exempt.‌ ‌Import‌ ‌duty‌ ‌is‌ ‌an‌ ‌additional‌ ‌sales‌ ‌tax‌ ‌applicable‌ ‌on‌ ‌all‌ ‌imported‌ ‌goods‌ ‌at‌ ‌a‌ ‌rate‌ ‌of‌ ‌5%,‌ ‌with‌ ‌no‌ ‌exemptions.‌ ‌When‌ ‌I‌ ‌purchase‌ ‌items‌‌ I‌ ‌receive‌ ‌a‌ ‌receipt‌ ‌which‌ ‌lists‌ ‌the‌ ‌name‌ ‌of‌ ‌all‌ ‌the‌ ‌items‌ ‌and‌ ‌their‌ ‌price‌ ‌(including‌ ‌tax),‌‌ finishing‌ ‌with‌ ‌the‌ ‌total‌ ‌cost‌ ‌of‌ ‌the‌ ‌items,‌ ‌and‌ ‌the‌ ‌total‌ ‌amounts‌ ‌of‌ ‌sales‌ ‌taxes‌ ‌paid.‌ **‌The‌ ‌rounding‌ ‌rules‌ ‌for‌ ‌sales‌ ‌tax‌ ‌are‌ ‌that‌ ‌for‌ ‌a‌ ‌tax‌‌ rate‌ ‌of‌ ‌n%,‌ ‌a‌ ‌shelf‌ ‌price‌ ‌of‌ ‌p‌ ‌contains‌ ‌(np/100‌ ‌rounded‌ ‌up‌ ‌to‌ ‌the‌ ‌nearest‌ ‌0.05)‌ ‌amount‌ ‌of‌‌ sales‌ ‌tax.**‌ ‌
 ‌
 Write‌ ‌an‌ ‌application‌ ‌that‌ ‌prints‌ ‌out‌ ‌the‌ ‌receipt‌ ‌details‌ ‌for‌ ‌these‌ ‌shopping‌ ‌baskets...‌ ‌
+
+## Usage
+
+First clone the repo.
+```
+git clone https://github.com/Balou9/itemis-cc
+```
+Afterwards navigate to the project directory and install required dependencies.
+
+```
+cd itemis-cc && npm i
+```
+The main function is declared in the index.js file.
+To use this function it can be imported like in the following example. This example is also declared in a usage.js file.
+
+```
+const calcTotalPriceInclTaxes = require("./index.js")
+const shoppingBasket1 = {
+  goods: {
+    "001": {
+      item: "book",
+      amount: 1,
+      price: 12.49,
+      import: false
+    },
+    "002": {
+      item: "musicCD",
+      amount: 1,
+      price: 14.99,
+      import: false
+    },
+    "003": {
+      item: "chocolateBar",
+      amount: 1,
+      price: 0.85,
+      import: false
+    }
+  }
+}
+
+const result1 = calcTotalPriceInclTaxes(shoppingBasket1)
+console.log(result1)
+// {
+//   shoppingCart: {
+//     '001': '1 book: 12.49',
+//     '002': '1 music CD: 16.49',
+//     '003': '1 chocolate bar: 0.85'
+//   },
+//   'Sales Taxes': 1.5,
+//   Total: 29.83
+// }
+```
+
+## Run example
+
+The example is provided in the usage.js file.
+Simply run ...
+
+```
+node usage
+```
 
 ## Input
 

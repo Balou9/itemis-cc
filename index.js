@@ -20,6 +20,8 @@ function calcTotalPriceInclTaxes (goodieBox) {
     if (taxLookup.goods[goodieBox.goods[goodie].item].basic) {
       basicSalesTaxes += goodieBox.goods[goodie].price * taxLookup.taxes.basic
       basicSalesTaxes = Math.round(basicSalesTaxes * 100) / 100
+    } else {
+      basicSalesTaxes += 0
     }
 
     if (goodieBox.goods[goodie].import) {
