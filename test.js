@@ -76,6 +76,12 @@ const shoppingBasket4 = {
       amount: 2,
       price: 5.99,
       import: false
+    },
+    "002": {
+      item: "chocolateBox",
+      amount: 1,
+      price: 11.25,
+      import: true
     }
   }
 }
@@ -108,7 +114,10 @@ tape("Calculates sales Taxes and total price", (t) => {
   t.end()
 })
 
-// tape("Returns empty object if shopping basket contains not available goods", (t) => {
-//   const result = calcTotalPriceInclTaxes(shoppingBasket4)
-//   t.equal(result)
-// })
+tape("Does not calculate sales taxes and total price for unavailable products", (t) => {
+  const result = calcTotalPriceInclTaxes(shoppingBasket4)
+  t.assert(result.shoppingCart)
+  t.equal(result.shoppingCart["001"], ' The selected product "football" is not in our product range: ')
+  t.equal(result.shoppingCart["002"], "1 imported box of chocolates: 11.85")
+  t.end()
+})

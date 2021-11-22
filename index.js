@@ -12,16 +12,16 @@ function calcTotalPriceInclTaxes (goodieBox) {
   let itemTotalPrice = 0
   let total = 0
   let salesTaxes = 0
-  let payload = {
+  let receipt = {
     shoppingCart: {}
   }
 
   for (goodie in goodieBox.goods) {
-    if (taxLookup.goods[goodieBox.goods[goodie].item].basic) {
+    if (!taxLookup.goods[goodieBox.goods[goodie].item]) {
+      basicSalesTaxes += 0
+    } else if (taxLookup.goods[goodieBox.goods[goodie].item].basic) {
       basicSalesTaxes += goodieBox.goods[goodie].price * taxLookup.taxes.basic
       basicSalesTaxes = Math.round(basicSalesTaxes * 100) / 100
-    } else {
-      basicSalesTaxes += 0
     }
 
     if (goodieBox.goods[goodie].import) {
@@ -29,38 +29,48 @@ function calcTotalPriceInclTaxes (goodieBox) {
       importDuty = Math.round(importDuty * 10) / 10
     }
 
-    itemTaxes = importDuty + basicSalesTaxes
-    itemTaxes = parseFloat(itemTaxes.toFixed(2))
+    if (!taxLookup.goods[goodieBox.goods[goodie].item]) {
+      receipt.shoppingCart[goodie] = prepShoppingCartPayload(
+        '',
+        false,
+        `The selected product "${goodieBox.goods[goodie].item}" is not in our product range`,
+        ''
+      )
+    } else {
+      itemTaxes = importDuty + basicSalesTaxes
+      itemTaxes = parseFloat(itemTaxes.toFixed(2))
 
-    salesTaxes += itemTaxes
-    salesTaxes = parseFloat(salesTaxes.toFixed(2))
+      salesTaxes += itemTaxes
+      salesTaxes = parseFloat(salesTaxes.toFixed(2))
 
-    price = goodieBox.goods[goodie].amount * goodieBox.goods[goodie].price
-    price = parseFloat(price.toFixed(2))
+      price = goodieBox.goods[goodie].amount * goodieBox.goods[goodie].price
+      price = parseFloat(price.toFixed(2))
 
-    itemTotalPrice = itemTaxes + price
-    itemTotalPrice = parseFloat(itemTotalPrice.toFixed(2))
+      itemTotalPrice = itemTaxes + price
+      itemTotalPrice = parseFloat(itemTotalPrice.toFixed(2))
 
-    total += itemTotalPrice
-    total = parseFloat(total.toFixed(2))
+      total += itemTotalPrice
+      total = parseFloat(total.toFixed(2))
 
-    strItemTotalPrice = itemTotalPrice.toFixed(2)
-    payload.shoppingCart[goodie] = prepShoppingCartPayload(
-      goodieBox.goods[goodie].amount,
-      goodieBox.goods[goodie].import,
-      taxLookup.goods[goodieBox.goods[goodie].item].name,
-      strItemTotalPrice
-    )
+      strItemTotalPrice = itemTotalPrice.toFixed(2)
+
+      receipt.shoppingCart[goodie] = prepShoppingCartPayload(
+        goodieBox.goods[goodie].amount,
+        goodieBox.goods[goodie].import,
+        taxLookup.goods[goodieBox.goods[goodie].item].name,
+        strItemTotalPrice
+      )
+    }
 
     basicSalesTaxes = 0
     importDuty = 0
     itemTotalPrice = 0
   }
 
-  payload["Sales Taxes"] = salesTaxes
-  payload["Total"] = total
+  receipt["Sales Taxes"] = salesTaxes
+  receipt["Total"] = total
 
-  return payload
+  return receipt
 }
 
 module.exports = calcTotalPriceInclTaxes
