@@ -1,4 +1,4 @@
-const shoppingBasket1 = {
+module.exports.shoppingBasket1 = {
   goods: {
     "001": {
       item: "book",
@@ -21,7 +21,7 @@ const shoppingBasket1 = {
   }
 }
 
-const shoppingBasket2 = {
+module.exports.shoppingBasket2 = {
   goods: {
     "001": {
       item: "chocolateBox",
@@ -38,7 +38,7 @@ const shoppingBasket2 = {
   }
 }
 
-const shoppingBasket3 = {
+module.exports.shoppingBasket3 = {
   goods: {
     "001": {
       item: "perfumeBottle",
@@ -67,7 +67,7 @@ const shoppingBasket3 = {
   }
 }
 
-const shoppingBasket4 = {
+module.exports.shoppingBasket4 = {
   goods: {
     "001": {
       item: "football",
@@ -78,7 +78,7 @@ const shoppingBasket4 = {
   }
 }
 
-const shoppingBasket5 = {
+module.exports.shoppingBasket5 = {
   goods: {
     "001": {
       item: "football",
@@ -93,12 +93,4 @@ const shoppingBasket5 = {
       import: true
     }
   }
-}
-
-module.exports = {
-  shoppingBasket1,
-  shoppingBasket2,
-  shoppingBasket3,
-  shoppingBasket4,
-  shoppingBasket5
 }

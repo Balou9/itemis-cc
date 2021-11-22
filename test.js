@@ -6,7 +6,7 @@ const {
   shoppingBasket3,
   shoppingBasket4,
   shoppingBasket5
-} = require("./sampleShoppingBasket.js")
+} = require("./utils/sampleShoppingBasket.js")
 
 tape("Calculates sales Taxes and total price", (t) => {
   const result1 = calcTotalPriceInclTaxes(shoppingBasket1)

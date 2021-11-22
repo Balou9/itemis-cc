@@ -1,4 +1,5 @@
-const taxLookup = require("./tax-lookup.json")
+const productDirectory = require("./utils/product-directory.json")
+const taxLookup = require("./utils/tax-lookup.json")
 
 function prepShoppingCartPayload (amount, importDuty, item, itemPrice) {
   if (!amount && itemPrice === 0){
@@ -22,9 +23,9 @@ function calcTotalPriceInclTaxes (goodieBox) {
   }
 
   for (goodie in goodieBox.goods) {
-    if (!taxLookup.goods[goodieBox.goods[goodie].item]) {
+    if (!productDirectory.goods[goodieBox.goods[goodie].item]) {
       basicSalesTaxes += 0
-    } else if (taxLookup.goods[goodieBox.goods[goodie].item].basic) {
+    } else if (productDirectory.goods[goodieBox.goods[goodie].item].basic) {
       basicSalesTaxes += goodieBox.goods[goodie].price * taxLookup.taxes.basic
       basicSalesTaxes = Math.round(basicSalesTaxes * 100) / 100
     }
@@ -34,7 +35,7 @@ function calcTotalPriceInclTaxes (goodieBox) {
       importDuty = Math.round(importDuty * 10) / 10
     }
 
-    if (!taxLookup.goods[goodieBox.goods[goodie].item]) {
+    if (!productDirectory.goods[goodieBox.goods[goodie].item]) {
       receipt.unavailableProducts[goodie] = prepShoppingCartPayload(
         0,
         false,
@@ -62,7 +63,7 @@ function calcTotalPriceInclTaxes (goodieBox) {
       receipt.shoppingCart[goodie] = prepShoppingCartPayload(
         goodieBox.goods[goodie].amount,
         goodieBox.goods[goodie].import,
-        taxLookup.goods[goodieBox.goods[goodie].item].name,
+        productDirectory.goods[goodieBox.goods[goodie].item].name,
         strItemTotalPrice
       )
     }

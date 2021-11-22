@@ -30,9 +30,5 @@
       "import": true,
       "name": "bottle of perfume"
     }
-  },
-  "taxes": {
-    "basic": 0.1,
-    "import": 0.05
   }
 }
