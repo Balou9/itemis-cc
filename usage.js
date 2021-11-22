@@ -1,12 +1,11 @@
 const calcTotalPriceInclTaxes = require("./index.js")
 const {
   shoppingBasket1,
-  shoppingBasket2,
-  shoppingBasket3,
-  shoppingBasket4,
-  shoppingBasket5
+  shoppingBasket2
 } = require("./utils/sampleShoppingBasket.js")
 
-const result = calcTotalPriceInclTaxes(shoppingBasket2)
+const receipt1 = calcTotalPriceInclTaxes(shoppingBasket1)
+console.log(receipt1)
 
-console.log(result)
+const receipt2 = calcTotalPriceInclTaxes(shoppingBasket2)
+console.log(receipt2)

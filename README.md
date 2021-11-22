@@ -10,6 +10,8 @@ Write‌ ‌an‌ ‌application‌ ‌that‌ ‌prints‌ ‌out‌ ‌the‌ 
 
 ## Usage
 
+### Setup
+
 First clone the repo.
 ```
 git clone https://github.com/Balou9/itemis-cc
@@ -19,19 +21,27 @@ Afterwards navigate to the project directory and install required dependencies.
 ```
 cd itemis-cc && npm i
 ```
-The main function is declared in the index.js file.
+
+### Run Example
+
+The example is provided in the usage.js file.
+Simply run ...
+```
+node usage
+```
+from the repository directory. The main function is declared in the index.js file.
 To use this function it can be imported like in the following example.
-This example is also declared in the usage.js file.
+The following example is also declared in the usage.js file.
 
 ```
 const {
   shoppingBasket1,
   shoppingBasket2
-}
+} = require("./utils/sampleShoppingBasket.js")
 const calcTotalPriceInclTaxes = require("./index.js")
 
-const result = calcTotalPriceInclTaxes(shoppingBasket1)
-console.log(result)
+const receipt1 = calcTotalPriceInclTaxes(shoppingBasket1)
+console.log(receipt1)
 // {
 //   shoppingCart: {
 //     '001': '1 book: 12.49',
@@ -42,8 +52,8 @@ console.log(result)
 //   Total: 29.83
 // }
 
-const result = calcTotalPriceInclTaxes(shoppingBasket2)
-console.log(result)
+const receipt2 = calcTotalPriceInclTaxes(shoppingBasket2)
+console.log(receipt2)
 // {
 //   shoppingCart: {
 //     '001': '1 imported box of chocolates: 10.50',
@@ -55,55 +65,11 @@ console.log(result)
 // }
 ```
 
-## Run example
+## CI
 
-The example is provided in the usage.js file.
-Simply run ...
+### Test cases
 
-```
-node usage
-```
 
-## Input
-
-Input‌ ‌1:‌ ‌
-- ‌1‌ ‌book‌ ‌at‌ ‌12.49‌ ‌ ‌
-- ‌1‌ ‌music‌ ‌CD‌ ‌at‌ ‌14.99‌ ‌ ‌
-- ‌1‌ ‌chocolate‌ ‌bar‌ ‌at‌ ‌0.85‌ ‌
-‌
-
-Input‌ ‌2:‌ ‌
-- ‌1‌ ‌imported‌ ‌box‌ ‌of‌ ‌chocolates‌ ‌at‌ ‌10.00‌ ‌ ‌
-- ‌1‌ ‌imported‌ ‌bottle‌ ‌of‌ ‌perfume‌ ‌at‌ ‌47.50‌ ‌ ‌
-
-‌
-Input‌ ‌3:   ‌
-- ‌1‌ ‌imported‌ ‌bottle‌ ‌of‌ ‌perfume‌ ‌at‌ ‌27.99‌ ‌ ‌
-- ‌1‌ ‌bottle‌ ‌of‌ ‌perfume‌ ‌at‌ ‌18.99‌ ‌ ‌
-- ‌1‌ ‌packet‌ ‌of‌ ‌headache‌ ‌pills‌ ‌at‌ ‌9.75‌ ‌ ‌
-- ‌1‌ ‌box‌ ‌of‌ ‌imported‌ ‌chocolates‌ ‌at‌ ‌11.25‌  
-
-## OUTPUT
-
-Output‌ ‌1:‌ ‌
-- ‌1‌ ‌book:‌ ‌12.49‌ ‌ ‌
-- ‌1‌ ‌music‌ ‌CD:‌ ‌16.49‌ ‌ ‌
-- ‌1‌ ‌chocolate‌ ‌bar:‌ ‌0.85‌ ‌ ‌
-- ‌Sales‌ ‌Taxes:‌ ‌1.50‌ ‌ ‌
-- ‌Total:‌ ‌29.83‌
-
-‌
-Output‌ ‌2:‌
-- ‌1‌ ‌imported‌ ‌box‌ ‌of‌ ‌chocolates:‌ ‌10.50‌ ‌ ‌
-- ‌1‌ ‌imported‌ ‌bottle‌ ‌of‌ ‌perfume:‌ ‌54.65‌ ‌ ‌
-- ‌Sales‌ ‌Taxes:‌ ‌7.65‌ ‌ ‌
-- ‌Total:‌ ‌65.15‌ ‌
-
-‌
-Output‌ ‌3:‌
-- ‌1‌ ‌imported‌ ‌bottle‌ ‌of‌ ‌perfume:‌ ‌32.19‌ ‌ ‌
-- ‌1‌ ‌bottle‌ ‌of‌ ‌perfume:‌ ‌20.89‌ ‌ ‌
-- ‌1‌ ‌packet‌ ‌of‌ ‌headache‌ ‌pills:‌ ‌9.75‌ ‌ ‌
-- ‌1‌ ‌imported‌ ‌box‌ ‌of‌ ‌chocolates:‌ ‌11.85‌ ‌ ‌
-- ‌Sales‌ ‌Taxes:‌ ‌6.70‌ ‌ ‌
-- ‌Total:‌ ‌74.68‌
+- **Calculates sales taxes and total price**  
+- **Does not calculate sales taxes and total price for unavailable products**  
+- **Does calculate for available products, even if the shopping basket contains unavailable products**
