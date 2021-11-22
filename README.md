@@ -1,6 +1,6 @@
 [![ci](https://github.com/Balou9/itemis-cc/workflows/ci/badge.svg)](https://github.com/Balou9/itemis-cc/actions/workflows/ci.yml)
 
-# TASK  
+# Task
 
 ## Sales Taxes  
 
@@ -24,15 +24,15 @@ cd itemis-cc && npm i
 
 ### Run Example
 
-The example is provided in the usage.js file.
+The main function is declared in the [index.js](https://github.com/Balou9/itemis-cc/blob/main/index.js) file. To use this function it can be imported like in the following example. The example is provided in the [usage.js](https://github.com/Balou9/itemis-cc/blob/main/usage.js) file.  
 Simply run ...
 ```
 node usage
 ```
-from the repository directory. The main function is declared in the index.js file.
-To use this function it can be imported like in the following example.
-The following example is also declared in the usage.js file.
+from the repository directory.
 
+
+The following example is a copy of the [usage.js](https://github.com/Balou9/itemis-cc/blob/main/usage.js) file.
 ```
 const {
   shoppingBasket1,
@@ -65,10 +65,9 @@ console.log(receipt2)
 // }
 ```
 
-## CI
+## CI Workflow
 
 ### Test cases
-
 
 - **Calculates sales taxes and total price**  
 - **Does not calculate sales taxes and total price for unavailable products**  
