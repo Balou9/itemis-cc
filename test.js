@@ -119,5 +119,7 @@ tape("Does not calculate sales taxes and total price for unavailable products", 
   t.assert(result.shoppingCart)
   t.equal(result.shoppingCart["001"], ' The selected product "football" is not in our product range: ')
   t.equal(result.shoppingCart["002"], "1 imported box of chocolates: 11.85")
+  t.equal(result["Sales Taxes"], 0.6)
+  t.equal(result["Total"], 11.85)
   t.end()
 })
