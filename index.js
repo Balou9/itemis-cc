@@ -1,7 +1,11 @@
 const taxLookup = require("./tax-lookup.json")
 
 function prepShoppingCartPayload (amount, importDuty, item, itemPrice) {
-  return (importDuty ? `${amount} imported ${item}: ${itemPrice}` : `${amount} ${item}: ${itemPrice}` )
+  if (!amount && itemPrice === 0){
+    return `The selected product "${item}" is not in our product range`
+  } else {
+    return (importDuty ? `${amount} imported ${item}: ${itemPrice}` : `${amount} ${item}: ${itemPrice}`)
+  }
 }
 
 function calcTotalPriceInclTaxes (goodieBox) {
@@ -13,7 +17,8 @@ function calcTotalPriceInclTaxes (goodieBox) {
   let total = 0
   let salesTaxes = 0
   let receipt = {
-    shoppingCart: {}
+    shoppingCart: {},
+    unavailableProducts: {}
   }
 
   for (goodie in goodieBox.goods) {
@@ -30,11 +35,11 @@ function calcTotalPriceInclTaxes (goodieBox) {
     }
 
     if (!taxLookup.goods[goodieBox.goods[goodie].item]) {
-      receipt.shoppingCart[goodie] = prepShoppingCartPayload(
-        '',
+      receipt.unavailableProducts[goodie] = prepShoppingCartPayload(
+        0,
         false,
-        `The selected product "${goodieBox.goods[goodie].item}" is not in our product range`,
-        ''
+        goodieBox.goods[goodie].item,
+        0
       )
     } else {
       itemTaxes = importDuty + basicSalesTaxes
