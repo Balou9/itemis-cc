@@ -1,6 +1,14 @@
 const productDirectory = require("./utils/product-directory.json")
 const taxLookup = require("./utils/tax-lookup.json")
 
+function isEmpty (object) {
+  for (var key in object) {
+    if (object.hasOwnProperty(key)) {
+      return false
+    }
+  }
+}
+
 function prepShoppingCartPayload (amount, importDuty, item, itemPrice) {
   if (!amount && itemPrice === 0){
     return `The selected product "${item}" is not in our product range`
@@ -71,6 +79,10 @@ function calcTotalPriceInclTaxes (goodieBox) {
     basicSalesTaxes = 0
     importDuty = 0
     itemTotalPrice = 0
+  }
+
+  if (Object.keys(receipt.unavailableProducts).length === 0) {
+    delete receipt.unavailableProducts
   }
 
   receipt["Sales Taxes"] = salesTaxes
