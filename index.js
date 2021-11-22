@@ -2,10 +2,8 @@ const productDirectory = require("./utils/product-directory.json")
 const taxLookup = require("./utils/tax-lookup.json")
 
 function isEmpty (object) {
-  for (var key in object) {
-    if (object.hasOwnProperty(key)) {
-      return false
-    }
+  if (Object.keys(object).length === 0) {
+    return true
   }
 }
 
@@ -81,7 +79,7 @@ function calcTotalPriceInclTaxes (goodieBox) {
     itemTotalPrice = 0
   }
 
-  if (Object.keys(receipt.unavailableProducts).length === 0) {
+  if (isEmpty(receipt.unavailableProducts)) {
     delete receipt.unavailableProducts
   }
 
