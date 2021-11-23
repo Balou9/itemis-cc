@@ -61,9 +61,6 @@ function calcTotalPriceInclTaxes (goodieBox) {
       itemTotalPrice = itemTaxes + price
       itemTotalPrice = parseFloat(itemTotalPrice.toFixed(2))
 
-      total += itemTotalPrice
-      total = parseFloat(total.toFixed(2))
-
       strItemTotalPrice = itemTotalPrice.toFixed(2)
 
       receipt.shoppingCart[goodie] = prepShoppingCartPayload(
@@ -72,6 +69,9 @@ function calcTotalPriceInclTaxes (goodieBox) {
         productDirectory.goods[goodieBox.goods[goodie].item].name,
         strItemTotalPrice
       )
+      
+      total += itemTotalPrice
+      total = parseFloat(total.toFixed(2))
     }
 
     basicSalesTaxes = 0
