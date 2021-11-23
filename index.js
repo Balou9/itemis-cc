@@ -4,6 +4,8 @@ const taxLookup = require("./utils/tax-lookup.json")
 function isEmpty (object) {
   if (Object.keys(object).length === 0) {
     return true
+  } else {
+    return false
   }
 }
 
@@ -69,7 +71,7 @@ function calcTotalPriceInclTaxes (goodieBox) {
         productDirectory.goods[goodieBox.goods[goodie].item].name,
         strItemTotalPrice
       )
-      
+
       total += itemTotalPrice
       total = parseFloat(total.toFixed(2))
     }

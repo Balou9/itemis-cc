@@ -13,16 +13,22 @@ Write‌ ‌an‌ ‌application‌ ‌that‌ ‌prints‌ ‌out‌ ‌the‌ 
 ```js
 calcTotalPriceInclTaxes(shoppingBasket)
 ```
+
+The function takes a shopping basket as an input and returns a receipt object.
+The receipt object holds a shopping cart containing all products and their costs including sales taxes. Additionally the overall sales taxes and the total price are also being presented.
+
 ## Usage
 
 ### Setup
 
-First clone the repo.
+It is assumed that git and npm are already installed.
+
+- First clone the repo.
 
 ```sh
 git clone https://github.com/Balou9/itemis-cc
 ```
-Afterwards navigate to the project directory and install required dependencies.
+- Afterwards navigate to the project directory and install required dependencies.
 
 ```sh
 cd itemis-cc && npm i
