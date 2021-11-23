@@ -50,7 +50,7 @@ tape("Does calculate for available products, even if the shopping basket contain
   t.equal(Object.keys(receipt.unavailableProducts).length, 1, "test if the number of unavailable products has the expected value")
   t.equal(Object.keys(receipt.shoppingCart).length, 1, "test if the shopping cart has the expected number of products")
   t.equal(receipt.unavailableProducts["001"], 'The selected product "football" is not in our product range', "test if the unavailable product information is as expected")
-  t.equal(receipt.shoppingCart["002"], "1 imported box of chocolates: 11.85", "test if the product price equals the expected value")
+  t.equal(receipt.shoppingCart["002"], "1 imported box of chocolates: 11.85", "test if the price of the available product equals the expected value")
   t.equal(receipt["Sales Taxes"], 0.6, "test if the sales taxes equals the expected value")
   t.equal(receipt["Total"], 11.85, "test if the total price equals the expected value")
   t.end()

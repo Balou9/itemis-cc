@@ -17,6 +17,10 @@ calcTotalPriceInclTaxes(shoppingBasket)
 The function takes a shopping basket as an input and returns a receipt object.
 The receipt object holds a shopping cart containing all products and their costs including sales taxes. Additionally the overall sales taxes and the total price are also being presented.
 
+The following feature was not mandatory.
+If the shopping basket accidently contains a product which is not part of the product store,
+the receipt returns an information text instead of the product cost.  
+
 ## Usage
 
 ### Setup
@@ -96,8 +100,13 @@ The [ci](https://github.com/Balou9/itemis-cc/actions/workflows/ci.yml) workflow 
 ### Test cases
 
 The test cases are defined in the [test.js](https://github.com/Balou9/itemis-cc/blob/main/test.js) file.
+The shopping baskets which will serve as test inputs are defined in the [sampleShoppingBasket.js](https://github.com/Balou9/itemis-cc/blob/main/utils/sampleShoppingBasket.js) file.
 
 #### Calculates sales taxes and total price  
+
+This test case uses the shopping baskets 1 to 3 as provided in the example as an input. It runs the test cases for each shopping basket. 
+
+**Tests:**
 
 - test if the number of products in the shopping cart has the expected value
 - test if the product price equals the expected value
@@ -105,6 +114,10 @@ The test cases are defined in the [test.js](https://github.com/Balou9/itemis-cc/
 - test if the total price equals the expected value
 
 #### Does not calculate sales taxes and total price for unavailable products
+
+This test case uses the shopping baskets 4 containing one unavailable product as an input.
+
+**Tests:**
 
 - test if the number of unavailable products is as expected
 - test if the shopping cart is empty
@@ -114,9 +127,13 @@ The test cases are defined in the [test.js](https://github.com/Balou9/itemis-cc/
 
 #### Does calculate for available products, even if the shopping basket contains unavailable products
 
+This test case uses the shopping baskets 5 containing one unavailable and one available product as an input.
+
+**Tests:**
+
 - test if the number of unavailable products has the expected value
 - test if the shopping cart has the expected number of products
 - test if the unavailable product information is as expected
-- test if the product price equals the expected value
+- test if the price of the available product equals the expected value
 - test if the sales taxes equals the expected value
 - test if the total price equals the expected value
