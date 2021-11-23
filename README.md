@@ -125,7 +125,7 @@ This test case uses the shopping basket 4 containing one unavailable product as 
 
 - test if the number of unavailable products is as expected
 - test if the shopping cart is empty
-- test if the unavailable product information is as expected
+- test if the unavailable product information text is as expected
 - test if the sales taxes equals zero
 - test if the total is zero  
 
@@ -139,7 +139,7 @@ This test case uses the shopping basket 5 containing one unavailable and one ava
 
 - test if the number of unavailable products has the expected value
 - test if the shopping cart has the expected number of products
-- test if the unavailable product information is as expected
+- test if the unavailable product information text is as expected
 - test if the price of the available product equals the expected value
 - test if the sales taxes equals the expected value
 - test if the total price equals the expected value
