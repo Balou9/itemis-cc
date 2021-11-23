@@ -102,22 +102,26 @@ The [ci](https://github.com/Balou9/itemis-cc/actions/workflows/ci.yml) workflow 
 The test cases are defined in the [test.js](https://github.com/Balou9/itemis-cc/blob/main/test.js) file.
 The shopping baskets which will serve as test inputs are defined in the [sampleShoppingBasket.js](https://github.com/Balou9/itemis-cc/blob/main/utils/sampleShoppingBasket.js) file.
 
+---
+
 #### Calculates sales taxes and total price  
 
-This test case uses the shopping baskets 1 to 3 as provided in the example as an input. It runs the test cases for each shopping basket. 
+This test case uses the shopping baskets 1 to 3 as provided in the example as an input. It runs the test with the following assertions for each shopping basket.
 
-**Tests:**
+**Tests assertions:**
 
 - test if the number of products in the shopping cart has the expected value
 - test if the product price equals the expected value
 - test if the sales taxes equals the expected value
 - test if the total price equals the expected value
 
+---
+
 #### Does not calculate sales taxes and total price for unavailable products
 
-This test case uses the shopping baskets 4 containing one unavailable product as an input.
+This test case uses the shopping basket 4 containing one unavailable product as an input.
 
-**Tests:**
+**Tests assertions::**
 
 - test if the number of unavailable products is as expected
 - test if the shopping cart is empty
@@ -125,11 +129,13 @@ This test case uses the shopping baskets 4 containing one unavailable product as
 - test if the sales taxes equals zero
 - test if the total is zero  
 
+---
+
 #### Does calculate for available products, even if the shopping basket contains unavailable products
 
-This test case uses the shopping baskets 5 containing one unavailable and one available product as an input.
+This test case uses the shopping basket 5 containing one unavailable and one available product as an input.
 
-**Tests:**
+**Tests assertions:**
 
 - test if the number of unavailable products has the expected value
 - test if the shopping cart has the expected number of products
