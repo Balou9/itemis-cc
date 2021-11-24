@@ -10,7 +10,7 @@ function isEmpty (object) {
 }
 
 function prepShoppingCartPayload (amount, importDuty, item, itemPrice) {
-  if (!amount && itemPrice === 0){
+  if (amount === 0){
     return `The selected product "${item}" is not in our product range`
   } else {
     return (importDuty ? `${amount} imported ${item}: ${itemPrice}` : `${amount} ${item}: ${itemPrice}`)

@@ -4,7 +4,7 @@
 
 ## Sales Taxes  
 
-Basic‌ ‌sales‌ ‌tax‌ ‌is‌ ‌applicable‌ ‌at‌ ‌a‌ ‌rate‌ ‌of‌ ‌10%‌ ‌on‌ all‌ ‌goods,‌ ‌except‌ ‌books,‌ ‌food,‌ ‌and‌ ‌medical‌‌ products‌ ‌that‌ ‌are‌ ‌exempt.‌ ‌Import‌ ‌duty‌ ‌is‌ ‌an‌ ‌additional‌ ‌sales‌ ‌tax‌ ‌applicable‌ ‌on‌ ‌all‌ ‌imported‌ ‌goods‌ ‌at‌ ‌a‌ ‌rate‌ ‌of‌ ‌5%,‌ ‌with‌ ‌no‌ ‌exemptions.‌ ‌When‌ ‌I‌ ‌purchase‌ ‌items‌‌ I‌ ‌receive‌ ‌a‌ ‌receipt‌ ‌which‌ ‌lists‌ ‌the‌ ‌name‌ ‌of‌ ‌all‌ ‌the‌ ‌items‌ ‌and‌ ‌their‌ ‌price‌ ‌(including‌ ‌tax),‌‌ finishing‌ ‌with‌ ‌the‌ ‌total‌ ‌cost‌ ‌of‌ ‌the‌ ‌items,‌ ‌and‌ ‌the‌ ‌total‌ ‌amounts‌ ‌of‌ ‌sales‌ ‌taxes‌ ‌paid.‌ **‌The‌ ‌rounding‌ ‌rules‌ ‌for‌ ‌sales‌ ‌tax‌ ‌are‌ ‌that‌ ‌for‌ ‌a‌ ‌tax‌‌ rate‌ ‌of‌ ‌n%,‌ ‌a‌ ‌shelf‌ ‌price‌ ‌of‌ ‌p‌ ‌contains‌ ‌(np/100‌ ‌rounded‌ ‌up‌ ‌to‌ ‌the‌ ‌nearest‌ ‌0.05)‌ ‌amount‌ ‌of‌‌ sales‌ ‌tax.**‌ ‌
+Basic‌ ‌sales‌ ‌tax‌ ‌is‌ ‌applicable‌ ‌at‌ ‌a‌ ‌rate‌ ‌of‌ ‌10%‌ ‌on‌ all‌ ‌goods,‌ ‌except‌ ‌books,‌ ‌food,‌ ‌and‌ ‌medical‌‌ products‌ ‌that‌ ‌are‌ ‌exempt.‌ ‌Import‌ ‌duty‌ ‌is‌ ‌an‌ ‌additional‌ ‌sales‌ ‌tax‌ ‌applicable‌ ‌on‌ ‌all‌ ‌imported‌ ‌goods‌ ‌at‌ ‌a‌ ‌rate‌ ‌of‌ ‌5%,‌ ‌with‌ ‌no‌ ‌exemptions.‌ ‌When‌ ‌I‌ ‌purchase‌ ‌items‌‌ I‌ ‌receive‌ ‌a‌ ‌receipt‌ ‌which‌ ‌lists‌ ‌the‌ ‌name‌ ‌of‌ ‌all‌ ‌the‌ ‌items‌ ‌and‌ ‌their‌ ‌price‌ ‌(including‌ ‌tax),‌‌ finishing‌ ‌with‌ ‌the‌ ‌total‌ ‌cost‌ ‌of‌ ‌the‌ ‌items,‌ ‌and‌ ‌the‌ ‌total‌ ‌amounts‌ ‌of‌ ‌sales‌ ‌taxes‌ ‌paid.‌ ‌The‌ ‌rounding‌ ‌rules‌ ‌for‌ ‌sales‌ ‌tax‌ ‌are‌ ‌that‌ ‌for‌ ‌a‌ ‌tax‌‌ rate‌ ‌of‌ ‌n%,‌ ‌a‌ ‌shelf‌ ‌price‌ ‌of‌ ‌p‌ ‌contains‌ ‌(np/100‌ ‌rounded‌ ‌up‌ ‌to‌ ‌the‌ ‌nearest‌ ‌0.05)‌ ‌amount‌ ‌of‌‌ sales‌ ‌tax.
 ‌
 Write‌ ‌an‌ ‌application‌ ‌that‌ ‌prints‌ ‌out‌ ‌the‌ ‌receipt‌ ‌details‌ ‌for‌ ‌these‌ ‌shopping‌ ‌baskets...‌ ‌
 
@@ -14,7 +14,7 @@ Write‌ ‌an‌ ‌application‌ ‌that‌ ‌prints‌ ‌out‌ ‌the‌ 
 calcTotalPriceInclTaxes(shoppingBasket)
 ```
 
-The function takes a shopping basket as an input and returns a receipt object.
+The main function is declared in the [index.js](https://github.com/Balou9/itemis-cc/blob/main/index.js) file. To use this function it can be imported like in the following example. The function takes a shopping basket as an input and returns a receipt object.
 The receipt object holds a shopping cart containing all products and their costs including sales taxes. Additionally the overall sales taxes and the total price are also being presented.
 
 The following feature was not mandatory.
@@ -40,7 +40,7 @@ cd itemis-cc && npm i
 
 ### Run Example
 
-The main function is declared in the [index.js](https://github.com/Balou9/itemis-cc/blob/main/index.js) file. To use this function it can be imported like in the following example. The example is provided in the [usage.js](https://github.com/Balou9/itemis-cc/blob/main/usage.js) file.  
+The example is provided in the [usage.js](https://github.com/Balou9/itemis-cc/blob/main/usage.js) file.  
 Simply run ...
 ```sh
 node usage
@@ -121,7 +121,7 @@ This test case uses the shopping baskets 1 to 3 as provided in the example as an
 
 This test case uses the shopping basket 4 containing one unavailable product as an input.
 
-**Tests assertions::**
+**Tests assertions:**
 
 - test if the number of unavailable products is as expected
 - test if the shopping cart is empty
