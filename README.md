@@ -14,7 +14,7 @@ Write‌ ‌an‌ ‌application‌ ‌that‌ ‌prints‌ ‌out‌ ‌the‌ 
 calcTotalPriceInclTaxes(shoppingBasket)
 ```
 
-The main function is declared in the [index.js](https://github.com/Balou9/itemis-cc/blob/main/index.js) file. To use this function it can be imported like in the following example. The function takes a shopping basket as an input and returns a receipt object.
+The main function is declared in the [index.js](https://github.com/Balou9/itemis-cc/blob/main/index.js) file. To use this function it can be imported like in the [example](###run-example) below. The function takes a shopping basket as an input and returns a receipt object.
 The receipt object holds a shopping cart containing all products and their costs including sales taxes. Additionally the overall sales taxes and the total price are also being presented.
 
 The following feature was not mandatory.
